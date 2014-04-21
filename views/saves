@@ -1,0 +1,57 @@
+from miliv/pacientes_fisioterapia
+ <script type="text/javascript">
+      function enviar(){
+      var nombre=this.document.buscar.nom_paciente.value;
+
+      $.ajax({type:"POST",url: "connect.php",data:dataSting,success}).done(
+        function(msg){
+        alert(msg);
+       });
+       this.document.buscar.nom_paciente.value=msg;
+      }
+    </script>
+
+    funcion on click
+
+      var nombre = $("#bus").val();
+  var refer = $("#referido").val();//nuevo
+  var t_paciente = $("#select_paciente").val();
+  var terapias = $("#n_terapias").val();
+  var m_pago = $("#metodo_pago").val();
+  var monto = $("#monto").val();
+  var fact = $("#facturacion").val();//tipo de facturacion
+  var n_banco = $("#banco").val();//cheque
+  var cantidad = $("#monto").val();
+  var n_cheque = $("#cheque").val();//cheque
+  var n_fact = $("#factura").val();//fact
+  var n_recib = $("#recibo").val();//recibo
+  var observ = $("#observaciones").val();
+  var terapist = $("#terapista").val();
+  
+  if(nombre == ""){
+        $( "#alert_nombre" ).show();
+        return;
+      }
+  if(t_paciente == ""){
+        $( "#alert_paciente" ).show();
+        return;
+      }    
+  if(terapias == ""){
+        $( "#alert_n_terapias" ).show();
+        return;
+      }
+  if(t_paciente == ""){
+        $( "#alert_paciente" ).show();
+        return;
+      }    
+  if(monto == ""){
+        $( "#alert_monto" ).show();
+        return;
+      }  
+  if (m_pago==="cheque") {
+      
+  };
+  $( "#alert_nombre" ).hide();
+  $( "#alert_paciente" ).hide();
+  $('#myModal').modal('show');
+});

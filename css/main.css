@@ -1,0 +1,96 @@
+
+label.error {
+  color: red;
+}
+
+
+#accordion{
+  
+  margin-top: 30px;
+}
+
+
+
+.button-generar{
+
+  margin-top: 10px;
+
+}
+
+
+
+/* Css para el modulo de busqueda */
+
+.results{
+  
+  display: none;
+}
+
+.results label {
+
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.search{
+
+  
+
+  height: auto;
+
+}
+
+.result-search{
+
+  height: auto;
+}
+
+#result-box{
+	
+	display: none;
+}
+
+#no-results{
+
+	display: none;
+}
+#ayuda_buscar{
+
+	margin-left: 450px;
+}
+
+#tipo{
+
+	font-style: italic;
+}
+
+/*css para la informacion del prestador*/
+
+#data-re-prestador{
+
+    margin-bottom: 50px;
+
+    margin-top: 50px;
+   margin-left:0;
+  }
+
+.foto-prestador{
+   width: 200px;
+    
+ 
+  }
+
+.btn-subir-foto{
+
+  clear:both;
+
+  margin-top: 10px
+}
+
+  #info{
+    margin-top: 20px;
+  float: right;
+  width:70%;
+  
+
+  }
