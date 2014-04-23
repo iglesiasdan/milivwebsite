@@ -65,11 +65,17 @@ $('#enviar').on("click",function(){
       var terapias = $("#n_terapias").val();
       var ced = $("#cedula").val();
       var afexion = $("#afeccion").val();
+      var age = $("#edad").val();
       $( "#alert_nombre" ).hide();
       if(nombre == ""){
             $( "#alert_nombre" ).show();
             return;
           }
+      $( "#alert_edad" ).hide();
+      if(age == ""){
+            $( "#alert_edad" ).show();
+            return;
+          }     
       $( "#alert_cedula" ).hide();
       if(ced == ""){
             $( "#alert_cedula" ).show();
@@ -206,7 +212,15 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo de la cedula posee errores o esta vacio.
               </div>
 
-                <div class="form-group" id="referencia">
+               <div class="form-group" id="edad">
+                  <label for="edad">Edad</label>
+                  <input name="edad" type="text" class="form-control" id="edad" data-rule-required="true" placeholder="Introduzca la cedula del paciente">
+                </div>                
+                <div id="alert_edad" class="alert alert-danger">
+                    <strong>Error!</strong> Revise el campo de la edad posee errores o esta vacio.
+              </div>
+
+                <div class="form-group" id="referidop">
                   <label for="referidop">Referido por</label>
                   <input name="referidop" type="text" class="form-control" id="referidop" data-rule-required="true" placeholder="Introduzca el medio por el cual el cliente fue referido">
                 </div>
@@ -214,8 +228,9 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo del medio por el cual fue referido el paciente posee errores o esta vacio.
               </div>
 
-              <div class="form-group" id="referencia">
-                  <label for="afeccion">Afeccion a tratar</label>
+
+              <div class="form-group" id="afeccion">
+                  <label for="afeccion">Afeccion a tratar\Diagnostico</label>
                   <input name="afeccion" type="text" class="form-control" id="afeccion" data-rule-required="true" placeholder="Introduzca la afeccion que se tratara">
                 </div>
                 <div id="alert_afeccion" class="alert alert-danger">
