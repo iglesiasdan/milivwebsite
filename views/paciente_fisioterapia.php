@@ -360,7 +360,7 @@ $('#send').on("click",function(){
                 </div>
 
                 <div class="form-group">
-                  <label for="afec">Afeccion a tratar</label>
+                  <label for="afec">Afeccion a tratar\Diagnostico</label>
                   <input name="afec" type="text" class="form-control" id="afec" data-rule-required="true" placeholder="Introduzca el numero de la terapia recibida">
                 </div>
                 <div id="alert_afec" class="alert alert-danger">

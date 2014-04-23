@@ -69,18 +69,19 @@ $('#enviar').on("click",function(){
       var terapias = $("#n_terapias").val();
       var ced = $("#cedula").val();
       var afexion = $("#afeccion").val();
-      var age = $("#edad").val();
+      var ager = $("#edad").val();
       var nac = $("#f_nacimiento").val();
       var casa = $("#t_casa").val();
       var movil = $("#t_movil").val();
       var dir = $("#direccion").val();
+      console.log(ager);
       $( "#alert_nombre" ).hide();
       if(nombre == ""){
             $( "#alert_nombre" ).show();
             return;
           }
       $( "#alert_edad" ).hide();
-      if(age == ""){
+      if(ager == ""){
             $( "#alert_edad" ).show();
             return;
           }     
@@ -126,27 +127,22 @@ $('#enviar').on("click",function(){
             return;
           }
       //alert(nombre.length());
-      
-      
-     
-      
-      $( "#alert_fecha" ).hide();
-
       $('#myModal').modal('show');
     });
 
     $('#submit').on("click",function(){
-//$('#myModal').modal('hide');
-  //    alert("holis");
       var nombre = $("#bus").val();
       var referidox = $("#referidop").val();//nuevo]
       var ced = $("#cedula").val();
-      //var t_paciente = $("#select_paciente").val();
       var terapias = $("#n_terapias").val();
-      
       var afexion = $("#afeccion").val();
-      
-      $.post("insertar_paciente.php",{n:nombre,r:referidox,c:ced,ct:terapias,a:afexion},function(response){
+      var age = $("#edad").val();
+      var nac = $("#f_nacimiento").val();
+      var casa = $("#t_casa").val();
+      var movil = $("#t_movil").val();
+      var dir = $("#direccion").val();
+
+      $.post("insertar_paciente.php",{n:nombre,r:referidox,c:ced,ct:terapias,a:afexion,age:age,nac:nac,casa:casa,movil:movil,dir:dir},function(response){
         var insertar_paciente = response;
         if (insertar_paciente==1) {
           $('#myModal').modal('hide');
@@ -156,6 +152,11 @@ $('#enviar').on("click",function(){
           $("#afeccion").val("");
           $("#referidop").val("");
           $("#n_terapias").val("");
+          $("#edad").val("");
+          $("#f_nacimiento").val("");
+          $("#t_casa").val("");
+          $("#t_movil").val("");
+          $("#direccion").val("");
         };
         if (insertar_paciente==-1) {
           $('#myModal').modal('hide');
@@ -232,7 +233,7 @@ $('#enviar').on("click",function(){
               <div id="alert_nombre" class="alert alert-danger">
                     <strong>Error!</strong> Revise el campo del nombre que posee errores o esta vacio.
               </div>
-              <div class="form-group" id="cedula">
+              <div class="form-group">
                   <label for="cedula">Cedula</label>
                   <input name="cedula" type="text" class="form-control" id="cedula" data-rule-required="true" placeholder="Introduzca la cedula del paciente">
                 </div>                
@@ -240,7 +241,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo de la cedula posee errores o esta vacio.
               </div>
 
-               <div class="form-group" id="edad">
+               <div class="form-group">
                   <label for="edad">Edad</label>
                   <input name="edad" type="text" class="form-control" id="edad" data-rule-required="true" placeholder="Introduzca la edad del paciente">
                 </div>                
@@ -248,7 +249,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo de la edad posee errores o esta vacio.
               </div>
 
-              <div class="form-group" id="f_nacimiento">
+              <div class="form-group" >
                   <label for="f_nacimiento">Fecha de Nacimiento</label>
                   <input name="f_nacimiento" type="text" class="form-control" id="f_nacimiento" data-rule-required="true" placeholder="Introduzca la fecha de nacimiento del paciente">
                 </div>                
@@ -256,7 +257,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo de la fecha de nacimiento posee errores o esta vacio.
               </div>
 
-              <div class="form-group" id="t_casa">
+              <div class="form-group" >
                   <label for="t_casa">Telefono de Habitacion</label>
                   <input name="t_casa" type="text" class="form-control" id="t_casa" data-rule-required="true" placeholder="Introduzca el telefono de habitacion del paciente">
                 </div>                
@@ -264,7 +265,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo del telefono de habitacion posee errores o esta vacio.
               </div>
 
-              <div class="form-group" id="t_movil">
+              <div class="form-group" >
                   <label for="t_movil">Telefono Celular</label>
                   <input name="t_movil" type="text" class="form-control" id="t_movil" data-rule-required="true" placeholder="Introduzca el telefono celular del paciente">
                 </div>                
@@ -272,7 +273,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo del telefono celular posee errores o esta vacio.
               </div>
 
-              <div class="form-group" id="direccion">
+              <div class="form-group" >
                   <label for="direccion">Direccion</label>
                   <input name="direccion" type="text" class="form-control" id="direccion" data-rule-required="true" placeholder="Introduzca la direccion del paciente">
                 </div>                
@@ -280,7 +281,7 @@ $('#enviar').on("click",function(){
                     <strong>Error!</strong> Revise el campo de la direccion posee errores o esta vacio.
               </div>
 
-                <div class="form-group" id="referidop">
+                <div class="form-group" >
                   <label for="referidop">Referido por</label>
                   <input name="referidop" type="text" class="form-control" id="referidop" data-rule-required="true" placeholder="Introduzca el medio por el cual el cliente fue referido">
                 </div>
@@ -289,7 +290,7 @@ $('#enviar').on("click",function(){
               </div>
 
 
-              <div class="form-group" id="afeccion">
+              <div class="form-group">
                   <label for="afeccion">Afeccion a tratar\Diagnostico</label>
                   <input name="afeccion" type="text" class="form-control" id="afeccion" data-rule-required="true" placeholder="Introduzca la afeccion que se tratara">
                 </div>
