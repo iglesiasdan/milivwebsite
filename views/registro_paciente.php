@@ -53,11 +53,15 @@ loadDoc("q="+n,"proc.php",function(){
 $(document).ready(function(){
  
   $( "#alert_nombre" ).hide();
-
   $( "#alert_n_terapias" ).hide();
   $("#alert_cedula").hide();
   $("#alert_referido").hide();
   $( "#alert_afeccion" ).hide(); 
+  $("#alert_edad").hide();
+  $("#alert_nacimiento").hide();
+  $("#alert_t_casa").hide();
+  $("#alert_t_movil").hide();
+  $("#alert_direccion").hide();
 $('#enviar').on("click",function(){
       var nombre = $("#bus").val();
       var refer = $("#referidop").val();//nuevo
@@ -66,6 +70,10 @@ $('#enviar').on("click",function(){
       var ced = $("#cedula").val();
       var afexion = $("#afeccion").val();
       var age = $("#edad").val();
+      var nac = $("#f_nacimiento").val();
+      var casa = $("#t_casa").val();
+      var movil = $("#t_movil").val();
+      var dir = $("#direccion").val();
       $( "#alert_nombre" ).hide();
       if(nombre == ""){
             $( "#alert_nombre" ).show();
@@ -76,6 +84,26 @@ $('#enviar').on("click",function(){
             $( "#alert_edad" ).show();
             return;
           }     
+      $( "#alert_nacimiento" ).hide();
+      if(nac == ""){
+            $( "#alert_nacimiento" ).show();
+            return;
+          }
+      $( "#alert_t_casa" ).hide();
+      if(casa == ""){
+            $( "#alert_t_casa" ).show();
+            return;
+          }
+      $( "#alert_t_movil" ).hide();
+      if(movil == ""){
+            $( "#alert_t_movil" ).show();
+            return;
+          }  
+      $( "#alert_direccion" ).hide();
+      if(dir == ""){
+            $( "#alert_direccion" ).show();
+            return;
+          }          
       $( "#alert_cedula" ).hide();
       if(ced == ""){
             $( "#alert_cedula" ).show();
@@ -204,7 +232,7 @@ $('#enviar').on("click",function(){
               <div id="alert_nombre" class="alert alert-danger">
                     <strong>Error!</strong> Revise el campo del nombre que posee errores o esta vacio.
               </div>
-              <div class="form-group" id="referencia">
+              <div class="form-group" id="cedula">
                   <label for="cedula">Cedula</label>
                   <input name="cedula" type="text" class="form-control" id="cedula" data-rule-required="true" placeholder="Introduzca la cedula del paciente">
                 </div>                
@@ -214,10 +242,42 @@ $('#enviar').on("click",function(){
 
                <div class="form-group" id="edad">
                   <label for="edad">Edad</label>
-                  <input name="edad" type="text" class="form-control" id="edad" data-rule-required="true" placeholder="Introduzca la cedula del paciente">
+                  <input name="edad" type="text" class="form-control" id="edad" data-rule-required="true" placeholder="Introduzca la edad del paciente">
                 </div>                
                 <div id="alert_edad" class="alert alert-danger">
                     <strong>Error!</strong> Revise el campo de la edad posee errores o esta vacio.
+              </div>
+
+              <div class="form-group" id="f_nacimiento">
+                  <label for="f_nacimiento">Fecha de Nacimiento</label>
+                  <input name="f_nacimiento" type="text" class="form-control" id="f_nacimiento" data-rule-required="true" placeholder="Introduzca la fecha de nacimiento del paciente">
+                </div>                
+                <div id="alert_nacimiento" class="alert alert-danger">
+                    <strong>Error!</strong> Revise el campo de la fecha de nacimiento posee errores o esta vacio.
+              </div>
+
+              <div class="form-group" id="t_casa">
+                  <label for="t_casa">Telefono de Habitacion</label>
+                  <input name="t_casa" type="text" class="form-control" id="t_casa" data-rule-required="true" placeholder="Introduzca el telefono de habitacion del paciente">
+                </div>                
+                <div id="alert_t_casa" class="alert alert-danger">
+                    <strong>Error!</strong> Revise el campo del telefono de habitacion posee errores o esta vacio.
+              </div>
+
+              <div class="form-group" id="t_movil">
+                  <label for="t_movil">Telefono Celular</label>
+                  <input name="t_movil" type="text" class="form-control" id="t_movil" data-rule-required="true" placeholder="Introduzca el telefono celular del paciente">
+                </div>                
+                <div id="alert_t_movil" class="alert alert-danger">
+                    <strong>Error!</strong> Revise el campo del telefono celular posee errores o esta vacio.
+              </div>
+
+              <div class="form-group" id="direccion">
+                  <label for="direccion">Direccion</label>
+                  <input name="direccion" type="text" class="form-control" id="direccion" data-rule-required="true" placeholder="Introduzca la direccion del paciente">
+                </div>                
+                <div id="alert_direccion" class="alert alert-danger">
+                    <strong>Error!</strong> Revise el campo de la direccion posee errores o esta vacio.
               </div>
 
                 <div class="form-group" id="referidop">
